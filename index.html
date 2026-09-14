@@ -6,19 +6,10 @@
 <title>Radar de Audiencias · FOCOS TV</title>
 <style>
 :root{
-  --bg:#000000;
-  --panel:#121214;
-  --panel-2:#18181b;
-  --border:rgba(255,255,255,0.08);
-  --amber:#FFBE02;
-  --teal:#35758E;
-  --teal2:#229092;
-  --ink:#f4f4f2;
-  --ink-dim:#a6a6ab;
-  --ink-dimmer:#6f6f76;
-  --up:#3ecf8e;
-  --down:#ff6b6b;
-  --radius:16px;
+  --bg:#000000; --panel:#121214; --panel-2:#18181b; --border:rgba(255,255,255,0.08);
+  --amber:#FFBE02; --teal:#35758E; --teal2:#229092;
+  --ink:#f4f4f2; --ink-dim:#a6a6ab; --ink-dimmer:#6f6f76;
+  --up:#3ecf8e; --down:#ff6b6b; --radius:16px;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 *{box-sizing:border-box;}
@@ -28,10 +19,7 @@ body{
     radial-gradient(circle at 12% 0%, rgba(255,190,2,0.07), transparent 40%),
     radial-gradient(circle at 88% 8%, rgba(53,117,142,0.14), transparent 45%),
     var(--bg);
-  color:var(--ink);
-  font-family:var(--font);
-  -webkit-font-smoothing:antialiased;
-  padding:0 0 60px 0;
+  color:var(--ink); font-family:var(--font); -webkit-font-smoothing:antialiased; padding:0 0 60px 0;
 }
 .wrap{max-width:1360px;margin:0 auto;padding:0 28px;}
 header{padding:44px 28px 30px 28px;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
@@ -39,7 +27,7 @@ header::after{content:"";position:absolute; top:-40%; right:-6%;width:420px;heig
 .eyebrow{display:inline-flex; align-items:center; gap:8px;font-size:12px; letter-spacing:.14em; text-transform:uppercase;color:var(--amber); font-weight:600; margin-bottom:14px;}
 .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);}
 h1{font-size:clamp(28px,4vw,42px);margin:0 0 8px 0; font-weight:700; letter-spacing:-0.02em;background:linear-gradient(90deg,#fff, #d9d9d9 70%);-webkit-background-clip:text; background-clip:text; color:transparent;}
-.subtitle{color:var(--ink-dim); font-size:15px; max-width:720px; line-height:1.5;}
+.subtitle{color:var(--ink-dim); font-size:15px; max-width:740px; line-height:1.5;}
 .header-meta{margin-top:24px; display:flex; flex-wrap:wrap; gap:10px;}
 .pill{background:var(--panel); border:1px solid var(--border);padding:7px 14px; border-radius:999px; font-size:12.5px; color:var(--ink-dim);display:flex; align-items:center; gap:6px;}
 .pill b{color:var(--ink); font-weight:600;}
@@ -60,10 +48,7 @@ main{padding-top:34px;}
 .kpi .delta.flat{color:var(--ink-dimmer);}
 .kpi .note{margin-top:6px; font-size:10px; color:var(--ink-dimmer); line-height:1.4;}
 .grid2b{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-.grid3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;}
-@media(max-width:1100px){.grid3{grid-template-columns:1fr 1fr;}}
 @media(max-width:960px){.grid2b{grid-template-columns:1fr;}}
-@media(max-width:640px){.grid3{grid-template-columns:1fr;}}
 .card{background:linear-gradient(160deg, var(--panel), var(--panel-2));border:1px solid var(--border); border-radius:var(--radius);padding:22px; margin-bottom:16px;transition:border-color .18s ease;}
 .card:hover{border-color:rgba(255,255,255,0.14);}
 .card h3{margin:0 0 2px 0; font-size:15px; font-weight:600;}
@@ -82,10 +67,14 @@ tbody td.strong{color:var(--ink); font-weight:600;}
 tbody tr:last-child td{border-bottom:none;}
 .inv-list{display:flex; flex-direction:column; gap:10px;}
 .inv-item{display:flex; justify-content:space-between; align-items:center;padding:14px 16px; background:rgba(255,255,255,0.02);border:1px solid var(--border); border-radius:10px; gap:14px;}
+.inv-item.hero{background:rgba(255,190,2,0.08); border-color:rgba(255,190,2,0.35);}
 .inv-title{font-size:13px; font-weight:500; color:var(--ink); line-height:1.4;}
 .inv-meta{font-size:11px; color:var(--ink-dimmer); margin-top:4px;}
-.inv-right{text-align:right;}
-.inv-num{font-size:18px; font-weight:700; color:var(--amber); white-space:nowrap;}
+.inv-right{text-align:right; white-space:nowrap;}
+.inv-num{font-size:18px; font-weight:700; color:var(--amber);}
+.inv-delta{font-size:11px; font-weight:600; margin-top:2px;}
+.inv-delta.up{color:var(--up);}
+.inv-delta.new{color:var(--teal2);}
 .badge-new{display:inline-block; background:rgba(62,207,142,0.15); color:var(--up); font-size:10px; font-weight:700; padding:2px 8px; border-radius:999px; margin-left:8px; vertical-align:middle;}
 .analysis-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;}
 @media(max-width:1000px){.analysis-grid{grid-template-columns:1fr;}}
@@ -109,11 +98,11 @@ footer{margin-top:50px; padding-top:24px; border-top:1px solid var(--border);dis
 <header>
   <div class="wrap">
     <div class="eyebrow"><span class="dot"></span>Radar de Audiencias · FOCOS TV</div>
-    <h1>Panorama de audiencias — semana del 31 ago al 6 sep 2026</h1>
-    <p class="subtitle">Facebook, Instagram, TikTok, YouTube, X y sitio web (GA4), comparado contra la semana del pico viral (24–30 ago). El patrón general es de reversión: casi todo baja tras el salto de la semana pasada, con dos excepciones importantes — X y el contenido de investigación nuevo.</p>
+    <h1>Panorama de audiencias — semana del 7 al 13 de septiembre 2026</h1>
+    <p class="subtitle">La semana más fuerte del radar hasta ahora, con una causa identificable: la investigación <b>«Amigos y socios de los Bukele: los nuevos latifundistas del golfo de Fonseca»</b> pasó de 38 a 1.257 vistas de página (+3.208%) y arrastró consigo a Facebook, TikTok, X y el sitio web. Instagram es la excepción: cae por tercera semana consecutiva.</p>
     <div class="header-meta">
-      <span class="pill"><span class="sw" style="background:var(--amber)"></span>Semana actual: 31 ago – 6 sep 2026</span>
-      <span class="pill"><span class="sw" style="background:var(--teal)"></span>Semana anterior: 24 – 30 ago 2026</span>
+      <span class="pill"><span class="sw" style="background:var(--amber)"></span>Semana actual: 7 – 13 sep 2026</span>
+      <span class="pill"><span class="sw" style="background:var(--teal)"></span>Semana anterior: 31 ago – 6 sep 2026</span>
       <span class="pill">6 canales analizados</span>
       <span class="pill">Datos exportados directamente de cada plataforma — sin estimaciones</span>
     </div>
@@ -128,25 +117,16 @@ footer{margin-top:50px; padding-top:24px; border-top:1px solid var(--border);dis
   <div class="section-title">Panorama semanal: quién creció, quién cayó</div>
   <div class="card">
     <h3>Variación % de la métrica principal de alcance por canal</h3>
-    <div class="card-sub">Facebook y Meta (visualizaciones), TikTok (vistas de video), X (impresiones), YouTube (vistas) — vs. la semana del 24–30 de agosto.</div>
+    <div class="card-sub">Facebook y Meta (visualizaciones), TikTok (vistas de video), X (impresiones), YouTube (vistas), sitio web (vistas de página) — vs. la semana del 31 ago–6 sep.</div>
     <div class="chart-box"><canvas id="chartOverview"></canvas></div>
     <div class="insight" id="insightOverview"></div>
   </div>
 
   <div class="section-title">Análisis: qué nos fue bien, qué no tan bien, qué repetir</div>
   <div class="analysis-grid">
-    <div class="analysis-card good">
-      <h3>✓ Qué nos fue bien</h3>
-      <ul id="goodList"></ul>
-    </div>
-    <div class="analysis-card bad">
-      <h3>✕ Qué no tan bien</h3>
-      <ul id="badList"></ul>
-    </div>
-    <div class="analysis-card repeat">
-      <h3>↻ Qué podemos repetir</h3>
-      <ul id="repeatList"></ul>
-    </div>
+    <div class="analysis-card good"><h3>✓ Qué nos fue bien</h3><ul id="goodList"></ul></div>
+    <div class="analysis-card bad"><h3>✕ Qué no tan bien</h3><ul id="badList"></ul></div>
+    <div class="analysis-card repeat"><h3>↻ Qué podemos repetir</h3><ul id="repeatList"></ul></div>
   </div>
 
   <div class="section-title">Variación detallada por canal</div>
@@ -227,8 +207,8 @@ footer{margin-top:50px; padding-top:24px; border-top:1px solid var(--border);dis
 
   <div class="section-title">Investigaciones activas — desempeño en el sitio</div>
   <div class="card">
-    <h3>Piezas señaladas por FOCOS, vistas de la semana</h3>
-    <div class="card-sub">Vistas de página (GA4), últimos 7 días. Las marcadas como <span class="badge-new">NUEVA</span> se publicaron o cobraron relevancia esta semana.</div>
+    <h3>Piezas señaladas por FOCOS, con comparación de período</h3>
+    <div class="card-sub">Vistas de página (GA4), últimos 7 días vs. semana anterior.</div>
     <div class="inv-list" id="invList"></div>
   </div>
 
@@ -242,7 +222,7 @@ footer{margin-top:50px; padding-top:24px; border-top:1px solid var(--border);dis
   <div class="legend-note">Cada canal exportó su propia ventana de 7 días con 1–2 días de desfase entre sí; se alinean por número de día para comparar la tendencia, no la fecha exacta.</div>
 
   <footer>
-    <span>Radar de Audiencias · FOCOS TV — actualizado el 7 de septiembre de 2026</span>
+    <span>Radar de Audiencias · FOCOS TV — actualizado el 14 de septiembre de 2026</span>
     <span>Datos tomados directamente de Meta Business Suite, YouTube Studio, TikTok Analytics, X Analytics y Google Analytics 4. Sin cifras estimadas.</span>
   </footer>
 
@@ -266,8 +246,7 @@ footer{margin-top:50px; padding-top:24px; border-top:1px solid var(--border);dis
 
 </script>
 <script>
-const DATA = {"period": {"current": "31 ago – 6 sep 2026", "prev": "24 – 30 ago 2026"}, "facebook": {"views": 55900, "views_pct": -33, "viewers": 36700, "viewers_pct": -42.3, "interactions": 2400, "interactions_pct": -46, "link_clicks": 30, "link_clicks_pct": 1400, "visits": 399, "visits_pct": -24.3, "followers": 92, "followers_pct": 3.4}, "instagram": {"views": 27980, "views_pct": -19.8, "reach": 9400, "reach_pct": -24.9, "interactions": 1900, "interactions_pct": -46.3, "link_clicks": 0, "link_clicks_pct": -100, "visits": 424, "visits_pct": -37.5, "followers": 47, "followers_pct": -36.5}, "tiktok": {"dates": ["31 de agosto", "1 de septiembre", "2 de septiembre", "3 de septiembre", "4 de septiembre", "5 de septiembre", "6 de septiembre"], "views": [4340, 3358, 3127, 9272, 5051, 4397, 3617], "likes": [223, 242, 236, 865, 378, 349, 302], "comments": [17, 12, 15, 38, 32, 26, 16], "shares": [14, 17, 25, 86, 33, 127, 5], "profile_views": [26, 26, 35, 60, 28, 35, 32]}, "x": {"dates": ["Tue, Sep 1, 2026", "Wed, Sep 2, 2026", "Thu, Sep 3, 2026", "Fri, Sep 4, 2026", "Sat, Sep 5, 2026", "Sun, Sep 6, 2026", "Mon, Sep 7, 2026"], "impressions": [4074, 3830, 8159, 7560, 8964, 2114, 614], "interactions": [163, 198, 258, 232, 168, 34, 12], "net_followers": [-2, 0, 3, 2, 1, 1, 0]}, "youtube": {"daily": {"dates": ["2026-08-31", "2026-09-01", "2026-09-02", "2026-09-03", "2026-09-04", "2026-09-05", "2026-09-06"], "views": [325, 342, 417, 482, 376, 394, 375]}, "top_videos": [["“Vivimos en una dictadura familiar” | Héctor Dada Hirezi analiza el régimen Bukele desde el exilio", 604], ["¿Por qué El Salvador oculta los datos sobre las personas desaparecidas?", 220], ["Experto internacional desmiente a Bukele sobre los 89,000 detenidos | Entrevista con Santiago Cantón", 149], ["\"No veo relevante saber cuántas personas votaron por mí\": Rafael Aguirre", 97], ["Pablo Parada Andino: un exguerrillero desentierra los crímenes de la guerrilla", 79], ["Víctimas de la guerrilla rompen el silencio", 69], ["Candidato del FMLN no aclara su postura sobre régimen de excepción", 67], ["Herard Von Santos - La guerra El Salvador-Honduras, medio siglo después", 58], ["El exguerrillero que señala a la comandancia del FMLN", 57], ["La masacre ignorada del río Lempa", 54]], "total_views": 2711, "total_subs": 7, "watch_hours": 202.9279, "revenue": 3.582, "thumb_impressions": 14418, "thumb_ctr": 6.03}, "ga4": {"active_daily": [136, 139, 126, 84, 149, 76, 72], "new_users_total": 698, "sessions_total": 895, "pageviews_total": 1134, "channels_new_users": {"Directo": 350, "Búsqueda orgánica": 208, "Social orgánico": 123, "Asistente IA": 7, "Referral": 10}, "top_countries": {"El Salvador": 323, "Estados Unidos": 101, "Singapur": 97, "China": 79, "México": 18, "Guatemala": 16, "España": 12}, "top_pages": [["Bienvenido a FOCOSTV", 187], ["¿Por qué decidimos cubrir una elección sin garantías democráticas? - FOCOS", 164], ["Amigos y socios de los Bukele: los nuevos latifundistas del golfo de Fonseca y otras áreas naturales - FOCOS", 38], ["Así sería El Salvador con la reducción del número de municipios a 44 - FOCOS", 29], ["Comentarios - FOCOS", 29], ["¿Por qué El Salvador oculta los datos sobre las personas desaparecidas? - FOCOS", 27], ["Elecciones 2027 archivos - FOCOS", 26], ["El último árbitro: Nuevas Ideas se toma el Tribunal Supremo Electoral - FOCOS", 23], ["Empresas de “Chepe Diablo” y exalcalde de Metapán ganaron $26.6 millones en contratos durante el gobierno de Bukele - FOCOS", 23], ["Ruth López, el gran error de cálculo del régimen - FOCOS", 19]]}, "prev": {"facebook": {"views": 83300, "views_pct": 433.7, "viewers": 63600, "viewers_pct": 456, "interactions": 4400, "interactions_pct": 786.7, "link_clicks": 2, "link_clicks_pct": -60, "visits": 527, "visits_pct": 56.4, "followers": 89, "followers_pct": 304.5}, "instagram": {"views": 52101, "views_pct": 39.9, "reach": 12600, "reach_pct": 13.8, "interactions": 3500, "interactions_pct": 55.4, "link_clicks": 1, "link_clicks_pct": -85.7, "visits": 678, "visits_pct": -8.1, "followers": 71, "followers_pct": 7.6}, "tiktok": {"views_sum": 51960, "profile_views_sum": 404, "likes_sum": 4646, "comments_sum": 139, "shares_sum": 468}, "x": {"impressions_sum": 15378, "interactions_sum": 575, "net_followers_sum": 7}, "youtube": {"total_views": 3228, "total_subs": 10, "watch_hours": 158.5491, "revenue": 2.295, "thumb_impressions": 10666, "thumb_ctr": 6.42}, "ga4": {"active_daily_sum": 922, "new_users_total": 840, "sessions_total": 1028, "pageviews_total": 1258, "top_countries": {"El Salvador": 245, "Singapur": 252, "China": 156, "Estados Unidos": 90, "Guatemala": 18, "México": 15, "Suecia": 14}}}, "investigations": [{"title": "¿Por qué El Salvador oculta los datos sobre las personas desaparecidas?", "views": 27, "is_new": true}, {"title": "Empresas de \"Chepe Diablo\" y exalcalde de Metapán ganaron $26.6 millones en contratos", "views": 23, "is_new": true}, {"title": "Ruth López, el gran error de cálculo del régimen", "views": 19, "is_new": true}, {"title": "Amigos y socios de los Bukele: los nuevos latifundistas del golfo de Fonseca y otras áreas naturales", "views": 38, "is_new": false}, {"title": "El último árbitro: Nuevas Ideas se toma el Tribunal Supremo Electoral", "views": 23, "is_new": false}, {"title": "Anatomía de un cerco: irse para sobrevivir, quedarse para resistir en El Salvador de Bukele", "views": 2, "is_new": false}]};
-
+const DATA = {"period": {"current": "7 – 13 sep 2026", "prev": "31 ago – 6 sep 2026"}, "facebook": {"views": 160500, "views_pct": 187.3, "viewers": 83900, "viewers_pct": 128.5, "interactions": 3000, "interactions_pct": 25.5, "link_clicks": 593, "link_clicks_pct": 1900, "visits": 657, "visits_pct": 64.7, "followers": 165, "followers_pct": 79.3}, "instagram": {"views": 13349, "views_pct": -63, "reach": 6200, "reach_pct": -34.2, "interactions": 696, "interactions_pct": -63.2, "link_clicks": 0, "link_clicks_pct": 0, "visits": 275, "visits_pct": -35.1, "followers": 37, "followers_pct": -21.3}, "tiktok": {"dates": ["6 de septiembre", "7 de septiembre", "8 de septiembre", "9 de septiembre", "10 de septiembre", "11 de septiembre", "12 de septiembre"], "views": [3617, 3721, 4675, 6366, 26053, 28797, 18687], "likes": [302, 205, 313, 585, 1573, 1576, 707], "comments": [16, 18, 43, 47, 178, 359, 140], "shares": [5, 9, 21, 17, 35, 35, 30], "profile_views": [32, 24, 22, 29, 73, 67, 48]}, "x": {"dates": ["Tue, Sep 8, 2026", "Wed, Sep 9, 2026", "Thu, Sep 10, 2026", "Fri, Sep 11, 2026", "Sat, Sep 12, 2026", "Sun, Sep 13, 2026", "Mon, Sep 14, 2026"], "impressions": [1718, 7729, 16006, 9147, 6155, 9060, 2899], "interactions": [39, 319, 263, 369, 276, 380, 157], "net_followers": [0, 1, 3, 6, 4, 4, 4]}, "youtube": {"daily": {"dates": ["2026-09-07", "2026-09-08", "2026-09-09", "2026-09-10", "2026-09-11", "2026-09-12", "2026-09-13"], "views": [380, 437, 433, 318, 278, 396, 449]}, "top_videos": [["“Vivimos en una dictadura familiar” | Héctor Dada Hirezi analiza el régimen Bukele desde el exilio", 755], ["Experto internacional desmiente a Bukele sobre los 89,000 detenidos | Entrevista con Santiago Cantón", 210], ["\"No veo relevante saber cuántas personas votaron por mí\": Rafael Aguirre", 181], ["Herard Von Santos - La guerra El Salvador-Honduras, medio siglo después", 120], ["¿Por qué la Asamblea de Bukele cambió las reglas del voto exterior? Esto responde Héctor Dada Hirezi", 119], ["El exguerrillero que señala a la comandancia del FMLN", 79], ["Víctimas de la guerrilla rompen el silencio", 78], ["Candidato del FMLN no aclara su postura sobre régimen de excepción", 64], ["La masacre ignorada del río Lempa", 62], ["Andrea Echeverri: “Nos lavaron el cerebro sobre nuestro propio cuerpo”", 57]], "total_views": 2691, "total_subs": 7, "watch_hours": 252.6648, "revenue": 5.125, "thumb_impressions": 13215, "thumb_ctr": 6.43}, "ga4": {"active_daily": [137, 74, 396, 420, 260, 222, 131], "new_users_total": 1535, "sessions_total": 1876, "pageviews_total": 2110, "channels_new_users": {"Social orgánico": 1011, "Directo": 303, "Búsqueda orgánica": 206, "Asistente IA": 5, "Referral": 7}, "top_countries": {"El Salvador": 1087, "Estados Unidos": 183, "China": 88, "Singapur": 47, "Guatemala": 22, "México": 18, "España": 15}, "top_pages": [["Amigos y socios de los Bukele: los nuevos latifundistas del golfo de Fonseca y otras áreas naturales - FOCOS", 1257], ["Bienvenido a FOCOSTV", 141], ["¿Por qué decidimos cubrir una elección sin garantías democráticas? - FOCOS", 46], ["Así sería El Salvador con la reducción del número de municipios a 44 - FOCOS", 37], ["Investigación - FOCOS", 20], ["Los $4.9 millones en créditos estatales del Banco Hipotecario para 27 funcionarios y 3 primos de Bukele  - FOCOS", 20], ["Bukele & Cía., la nueva familia terrateniente de El Salvador - FOCOS", 16], ["Comentarios - FOCOS", 16], ["Actualidad - FOCOS", 14], ["Multimedia - FOCOS", 11]]}, "prev": {"facebook": {"views": 55900, "views_pct": -33, "viewers": 36700, "viewers_pct": -42.3, "interactions": 2400, "interactions_pct": -46, "link_clicks": 30, "link_clicks_pct": 1400, "visits": 399, "visits_pct": -24.3, "followers": 92, "followers_pct": 3.4}, "instagram": {"views": 27980, "views_pct": -19.8, "reach": 9400, "reach_pct": -24.9, "interactions": 1900, "interactions_pct": -46.3, "link_clicks": 0, "link_clicks_pct": -100, "visits": 424, "visits_pct": -37.5, "followers": 47, "followers_pct": -36.5}, "tiktok": {"views_sum": 33162, "profile_views_sum": 242, "likes_sum": 2595, "comments_sum": 156, "shares_sum": 307}, "x": {"impressions_sum": 35315, "interactions_sum": 1065, "net_followers_sum": 5}, "youtube": {"total_views": 2711, "total_subs": 7, "watch_hours": 202.9279, "revenue": 3.582, "thumb_impressions": 14418, "thumb_ctr": 6.03}, "ga4": {"active_daily_sum": 782, "new_users_total": 698, "sessions_total": 895, "pageviews_total": 1134, "top_countries": {"El Salvador": 323, "Estados Unidos": 101, "Singapur": 97, "China": 79, "México": 18, "Guatemala": 16, "España": 12}}, "investigations": {"Amigos y socios de los Bukele: los nuevos latifundistas del golfo de Fonseca y otras áreas naturales": 38, "El último árbitro: Nuevas Ideas se toma el Tribunal Supremo Electoral": 23, "Anatomía de un cerco: irse para sobrevivir, quedarse para resistir en El Salvador de Bukele": 2}}, "investigations": [{"title": "Amigos y socios de los Bukele: los nuevos latifundistas del golfo de Fonseca y otras áreas naturales", "views": 1257, "prev": 38}, {"title": "Bukele & Cía., la nueva familia terrateniente de El Salvador", "views": 16, "prev": 0}, {"title": "Los $4.9 millones en créditos estatales del Banco Hipotecario para 27 funcionarios y 3 primos del presidente", "views": 20, "prev": 0}, {"title": "¿Por qué El Salvador oculta los datos sobre las personas desaparecidas?", "views": 8, "prev": null}, {"title": "Empresas de \"Chepe Diablo\" y exalcalde de Metapán ganaron $26.6 millones en contratos", "views": 7, "prev": 23}, {"title": "El último árbitro: Nuevas Ideas se toma el Tribunal Supremo Electoral", "views": 5, "prev": 23}, {"title": "Anatomía de un cerco: irse para sobrevivir, quedarse para resistir en El Salvador de Bukele", "views": 9, "prev": 2}]};
 const COLORS = {
   amber:'#FFBE02', teal:'#35758E', teal2:'#229092',
   facebook:'#35758E', instagram:'#FFBE02', tiktok:'#f4f4f2',
@@ -292,7 +271,6 @@ function upDownColor(v){ return v>=0 ? '#3ecf8e' : '#ff6b6b'; }
 
 const N = DATA.tiktok.dates.length;
 
-/* ---------- TOTALS (semana actual) ---------- */
 const tiktokViews = DATA.tiktok.views.reduce((a,b)=>a+b,0);
 const tiktokLikes = DATA.tiktok.likes.reduce((a,b)=>a+b,0);
 const tiktokComments = DATA.tiktok.comments.reduce((a,b)=>a+b,0);
@@ -307,7 +285,6 @@ const totalInteractions = DATA.facebook.interactions + DATA.instagram.interactio
 const engagementRate = (totalInteractions/totalViews*100);
 const totalFollowers = DATA.facebook.followers + DATA.instagram.followers + DATA.youtube.total_subs + xNetFollowers;
 
-/* ---------- DELTAS vs. semana anterior ---------- */
 const tiktokViewsDelta = pct(tiktokViews, DATA.prev.tiktok.views_sum);
 const tiktokProfileDelta = pct(tiktokProfileViews, DATA.prev.tiktok.profile_views_sum);
 const tiktokLikesDelta = pct(tiktokLikes, DATA.prev.tiktok.likes_sum);
@@ -331,6 +308,7 @@ const ga4NewUsersDelta = pct(DATA.ga4.new_users_total, DATA.prev.ga4.new_users_t
 const ga4SessionsDelta = pct(DATA.ga4.sessions_total, DATA.prev.ga4.sessions_total);
 const ga4PageviewsDelta = pct(DATA.ga4.pageviews_total, DATA.prev.ga4.pageviews_total);
 const ga4SVDelta = pct(DATA.ga4.top_countries['El Salvador'], DATA.prev.ga4.top_countries['El Salvador']);
+const heroDelta = pct(DATA.investigations[0].views, DATA.investigations[0].prev);
 
 /* ---------- KPI CARDS ---------- */
 const kpis = [
@@ -354,37 +332,39 @@ document.getElementById('kpiGrid').innerHTML = kpis.map(k=>`
 /* ---------- OVERVIEW ---------- */
 const overviewData = [
   {label:'Facebook (visualizaciones)', value:DATA.facebook.views_pct},
-  {label:'X (impresiones)', value:xImpressionsDelta},
-  {label:'Instagram (visualizaciones)', value:DATA.instagram.views_pct},
+  {label:'Sitio web (vistas de página)', value:ga4PageviewsDelta},
   {label:'TikTok (vistas)', value:tiktokViewsDelta},
+  {label:'X (impresiones)', value:xImpressionsDelta},
   {label:'YouTube (vistas)', value:ytViewsDelta},
+  {label:'Instagram (visualizaciones)', value:DATA.instagram.views_pct},
 ];
 new Chart(document.getElementById('chartOverview'),{
   type:'bar',
-  data:{labels:overviewData.map(d=>d.label), datasets:[{data:overviewData.map(d=>d.value), backgroundColor:overviewData.map(d=>upDownColor(d.value)), borderRadius:8, maxBarThickness:34}]},
+  data:{labels:overviewData.map(d=>d.label), datasets:[{data:overviewData.map(d=>d.value), backgroundColor:overviewData.map(d=>upDownColor(d.value)), borderRadius:8, maxBarThickness:32}]},
   options:{responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>(c.raw>0?'+':'')+c.raw.toFixed(1)+'% vs. semana anterior'}}}, scales:{x:{grid:{color:'rgba(255,255,255,0.06)'}, ticks:{callback:v=>v+'%'}}, y:{grid:{display:false}}}}
 });
-document.getElementById('insightOverview').innerHTML = `<b>X es el único canal que sigue en franca subida</b> (+${xImpressionsDelta.toFixed(1)}% en impresiones), revirtiendo su caída de la semana pasada. Todo lo demás retrocede tras el pico viral: Facebook ${DATA.facebook.views_pct.toFixed(1)}%, TikTok ${tiktokViewsDelta.toFixed(1)}%, Instagram ${DATA.instagram.views_pct.toFixed(1)}%, YouTube ${ytViewsDelta.toFixed(1)}%. Es el patrón esperable después de un salto atípico: sin un segundo contenido viral, el volumen regresa a niveles más normales.`;
+document.getElementById('insightOverview').innerHTML = `Cinco de seis canales crecen con fuerza esta semana, todos empujados por la misma historia: <b>«Amigos y socios de los Bukele»</b> pasó de 38 a ${fmt(DATA.investigations[0].views)} vistas de página (+${heroDelta.toFixed(0)}%). <b>Instagram es la única excepción</b> (${DATA.instagram.views_pct.toFixed(1)}%) — tercera semana consecutiva a la baja pese al empuje generalizado del resto del ecosistema.`;
 
-/* ---------- ANALYSIS: GOOD / BAD / REPEAT ---------- */
+/* ---------- ANALYSIS ---------- */
 document.getElementById('goodList').innerHTML = `
-  <li><b>X se recuperó con fuerza:</b> impresiones +${xImpressionsDelta.toFixed(1)}% e interacciones +${xInteractionsDelta.toFixed(1)}% — segunda semana consecutiva con movimiento real, esta vez al alza.</li>
-  <li><b>Contenido de investigación nuevo funciona rápido:</b> "¿Por qué El Salvador oculta los datos sobre las personas desaparecidas?" (publicado el 3 de sept) ya es el video más visto de la semana en YouTube y una de las páginas más vistas del sitio.</li>
-  <li><b>YouTube retiene mejor a quien llega:</b> horas de reproducción +${ytWatchHoursDelta.toFixed(1)}% e ingresos +${ytRevenueDelta.toFixed(1)}%, pese a menos vistas — la audiencia que entra ve más contenido.</li>
-  <li><b>El Salvador vuelve a liderar el tráfico del sitio</b> (+${ga4SVDelta.toFixed(1)}%), desplazando a Singapur del primer lugar — el patrón de tráfico atípico se normaliza esta semana.</li>
-  <li><b>Facebook retiene seguidores:</b> +3,4% esta semana, sobre la base ya ampliada la semana pasada — no perdió lo ganado.</li>
+  <li><b>Una investigación explica casi todo:</b> "Amigos y socios de los Bukele: los nuevos latifundistas" saltó de 38 a ${fmt(DATA.investigations[0].views)} vistas de página (+${heroDelta.toFixed(0)}%) — la pieza más exitosa medida en este radar hasta ahora.</li>
+  <li><b>Facebook tuvo su mejor semana:</b> visualizaciones +${DATA.facebook.views_pct.toFixed(1)}%, espectadores +${DATA.facebook.viewers_pct.toFixed(1)}%, seguidores +${DATA.facebook.followers_pct.toFixed(1)}%.</li>
+  <li><b>TikTok casi triplicó sus vistas</b> (+${tiktokViewsDelta.toFixed(1)}%) y los comentarios se dispararon +${tiktokCommentsDelta.toFixed(1)}% — la audiencia no solo vio, conversó activamente.</li>
+  <li><b>X, tercera semana consecutiva de crecimiento real:</b> impresiones +${xImpressionsDelta.toFixed(1)}%, seguidores netos +${xFollowersDelta.toFixed(0)}% (de 5 a ${fmt(xNetFollowers)}).</li>
+  <li><b>El sitio tuvo su mejor semana del radar</b> (vistas de página +${ga4PageviewsDelta.toFixed(1)}%) y, por primera vez, el pico social sí se tradujo en tráfico real — antes eso no pasaba.</li>
+  <li><b>El Salvador domina el tráfico del sitio</b> (${fmt(DATA.ga4.top_countries['El Salvador'])} usuarios, +${ga4SVDelta.toFixed(1)}%) — la proporción de audiencia local más alta que hemos visto en este radar.</li>
 `;
 document.getElementById('badList').innerHTML = `
-  <li><b>Reversión generalizada tras el pico viral:</b> Facebook, Instagram y TikTok caen en casi todas las métricas al no repetirse un contenido con el mismo alcance.</li>
-  <li><b>Instagram, clics en enlace a cero</b> (-100%) — segunda semana seguida de caída fuerte en esa métrica específica.</li>
-  <li><b>El sitio pierde tráfico junto con el social:</b> usuarios nuevos ${ga4NewUsersDelta.toFixed(1)}%, sesiones ${ga4SessionsDelta.toFixed(1)}%, vistas de página ${ga4PageviewsDelta.toFixed(1)}% — a diferencia de la semana pasada, ahora ambos bajan juntos.</li>
-  <li><b>YouTube pierde suscriptores netos</b> (${ytSubsDelta.toFixed(1)}%) pese a más impresiones de miniatura (+${ytThumbImprDelta.toFixed(1)}%) — más gente ve la miniatura, pero no se suscribe.</li>
+  <li><b>Instagram cae por tercera semana seguida:</b> visualizaciones ${DATA.instagram.views_pct.toFixed(1)}%, interacciones ${DATA.instagram.interactions_pct.toFixed(1)}%, seguidores ${DATA.instagram.followers_pct.toFixed(1)}% — diverge cada vez más de Facebook pese a compartir buena parte del contenido.</li>
+  <li><b>Instagram, clics en enlace en cero</b> por tercera semana consecutiva.</li>
+  <li><b>TikTok, compartidos a la baja</b> (${tiktokSharesDelta.toFixed(1)}%) pese al boom de vistas — se vio y se comentó mucho, pero se compartió menos, lo que puede limitar el alcance orgánico de la próxima semana.</li>
+  <li><b>YouTube no capitalizó el momentum:</b> suscriptores netos estancados (${DATA.youtube.total_subs}, sin cambio) e impresiones de miniatura a la baja (${ytThumbImprDelta.toFixed(1)}%), mientras el resto del ecosistema explotaba.</li>
 `;
 document.getElementById('repeatList').innerHTML = `
-  <li><b>Publicar investigación fresca y oportuna:</b> el patrón se repite semana tras semana — el contenido nuevo (no archivo) genera más tracción que reciclar piezas viejas.</li>
-  <li><b>Sostener el ritmo de publicación en X:</b> el canal responde bien cuando hay más actividad; esta semana lo demuestra con un rebote de +${xImpressionsDelta.toFixed(1)}%.</li>
-  <li><b>Planear un "segundo empujón" tras un pico viral:</b> ni Facebook ni TikTok tuvieron contenido de seguimiento esta semana, y la caída fue proporcional al tamaño del pico anterior.</li>
-  <li><b>Revisar miniaturas del catálogo de archivo:</b> videos como el de Héctor Dada Hirezi (de junio) siguen liderando en vistas — actualizar sus miniaturas podría mejorar el CTR que bajó esta semana.</li>
+  <li><b>Sistematizar el "paquete de lanzamiento" para investigaciones con nombre propio:</b> las piezas que señalan a funcionarios o empresas específicas (latifundistas, Chepe Diablo, Banco Hipotecario) generan los picos más grandes cuando se distribuyen bien — vale la pena definir un checklist de publicación cruzada (FB + TikTok + X) para cada investigación nueva.</li>
+  <li><b>Mantener e invertir más en X:</b> lleva tres semanas de crecimiento sostenido — lo que se está haciendo ahí merece más tiempo, no solo continuidad.</li>
+  <li><b>Identificar qué se hizo distinto esta semana para que el tráfico social llegara al sitio</b> (enlaces, timing, CTA) y repetirlo de forma intencional, no dejarlo a la casualidad.</li>
+  <li><b>Diagnosticar Instagram por separado de Facebook:</b> ya son tres semanas de trayectorias opuestas dentro del mismo ecosistema Meta — probablemente el formato (reel/story vs. post) necesita un ajuste distinto al de Facebook.</li>
 `;
 
 /* ---------- META DELTA ---------- */
@@ -401,7 +381,7 @@ new Chart(document.getElementById('chartMetaDelta'),{
   ]},
   options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'top', labels:{boxWidth:10, usePointStyle:true, pointStyle:'circle'}}, tooltip:{callbacks:{label:c=>c.raw===null?c.dataset.label+': sin dato':c.dataset.label+': '+(c.raw>0?'+':'')+c.raw.toFixed(1)+'%'}}}, scales:{x:{grid:{display:false}}, y:{grid:{color:'rgba(255,255,255,0.06)'}, ticks:{callback:v=>v+'%'}}}}
 });
-document.getElementById('insightMeta').innerHTML = `El único valor fuera de escala es <b>clics en enlace de Facebook (+1.400%)</b>, pero salta de una base muy pequeña (2 → 30). Instagram cae en prácticamente todo, incluyendo seguidores (${DATA.instagram.followers_pct.toFixed(1)}%) tras el salto de la semana pasada.`;
+document.getElementById('insightMeta').innerHTML = `Facebook y X se mueven juntos al alza en casi todo. Instagram es la excepción total: cae en las 5 métricas que reporta, incluyendo seguidores (${DATA.instagram.followers_pct.toFixed(1)}%) — mientras su contraparte de Meta (Facebook) vive su mejor semana.`;
 
 /* ---------- YOUTUBE DELTA ---------- */
 const ytMetrics = ['Vistas','Horas de reproducción','Suscriptores','Ingresos (USD)','Impresiones de miniaturas','CTR de miniaturas'];
@@ -411,7 +391,7 @@ new Chart(document.getElementById('chartYTDelta'),{
   data:{labels:ytMetrics, datasets:[{data:ytPctVals, backgroundColor:ytPctVals.map(upDownColor), borderRadius:6, maxBarThickness:28}]},
   options:{responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>(c.raw>0?'+':'')+c.raw.toFixed(1)+'%'}}}, scales:{x:{grid:{color:'rgba(255,255,255,0.06)'}, ticks:{callback:v=>v+'%'}}, y:{grid:{display:false}, ticks:{font:{size:10.5}}}}}
 });
-document.getElementById('insightYTDelta').innerHTML = `Menos vistas (${ytViewsDelta.toFixed(1)}%) pero más horas de reproducción (+${ytWatchHoursDelta.toFixed(1)}%) e ingresos (+${ytRevenueDelta.toFixed(1)}%) — señal de que llegó menos gente, pero se quedó viendo más tiempo.`;
+document.getElementById('insightYTDelta').innerHTML = `Vistas casi planas (${ytViewsDelta.toFixed(1)}%), pero horas de reproducción +${ytWatchHoursDelta.toFixed(1)}% e ingresos +${ytRevenueDelta.toFixed(1)}% — la misma audiencia se está quedando más tiempo y generando más valor, aunque el canal no creció en volumen esta semana.`;
 
 /* ---------- TIKTOK DELTA ---------- */
 const ttMetrics = ['Vistas de video','Visitas de perfil','Me gusta','Comentarios','Compartidos'];
@@ -421,7 +401,7 @@ new Chart(document.getElementById('chartTikTokDelta'),{
   data:{labels:ttMetrics, datasets:[{data:ttPctVals, backgroundColor:ttPctVals.map(upDownColor), borderRadius:6, maxBarThickness:28}]},
   options:{responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>(c.raw>0?'+':'')+c.raw.toFixed(1)+'%'}}}, scales:{x:{grid:{color:'rgba(255,255,255,0.06)'}, ticks:{callback:v=>v+'%'}}, y:{grid:{display:false}, ticks:{font:{size:10.5}}}}}
 });
-document.getElementById('insightTikTokDelta').innerHTML = `Caída generalizada (${tiktokViewsDelta.toFixed(1)}% en vistas), pero los comentarios crecieron +${tiktokCommentsDelta.toFixed(1)}% — quienes vieron el contenido esta semana se quedaron conversando más, aunque fueran menos.`;
+document.getElementById('insightTikTokDelta').innerHTML = `Los comentarios (+${tiktokCommentsDelta.toFixed(1)}%) crecieron mucho más que las vistas (+${tiktokViewsDelta.toFixed(1)}%) — señal de que el video generó conversación real, no solo scroll pasivo. Los compartidos son la única métrica que cae (${tiktokSharesDelta.toFixed(1)}%).`;
 
 /* ---------- GA4 DELTA ---------- */
 const ga4Metrics = ['Usuarios activos','Usuarios nuevos','Sesiones','Vistas de página','Usuarios de El Salvador'];
@@ -431,20 +411,20 @@ new Chart(document.getElementById('chartGA4Delta'),{
   data:{labels:ga4Metrics, datasets:[{data:ga4PctVals, backgroundColor:ga4PctVals.map(upDownColor), borderRadius:6, maxBarThickness:34}]},
   options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>(c.raw>0?'+':'')+c.raw.toFixed(1)+'%'}}}, scales:{x:{grid:{display:false}}, y:{grid:{color:'rgba(255,255,255,0.06)'}, ticks:{callback:v=>v+'%'}}}}
 });
-document.getElementById('insightGA4Delta').innerHTML = `El sitio cae en volumen general (usuarios nuevos ${ga4NewUsersDelta.toFixed(1)}%, vistas de página ${ga4PageviewsDelta.toFixed(1)}%), pero mejora en calidad de origen: los usuarios de El Salvador crecen +${ga4SVDelta.toFixed(1)}% mientras el tráfico atípico de Singapur pierde peso relativo.`;
+document.getElementById('insightGA4Delta').innerHTML = `La mejor semana del sitio en todo el radar: todas las métricas más que se duplican. Es también la primera vez que el pico social se refleja con esta claridad en tráfico propio.`;
 
 /* ---------- VIEWS BY PLATFORM ---------- */
 const viewsByPlatform = {
-  labels:['Facebook','TikTok','Instagram','X','YouTube'],
-  values:[DATA.facebook.views, tiktokViews, DATA.instagram.views, xImpressions, DATA.youtube.total_views],
-  colors:[COLORS.facebook, COLORS.tiktok, COLORS.instagram, COLORS.x, COLORS.youtube]
+  labels:['Facebook','TikTok','X','Instagram','YouTube'],
+  values:[DATA.facebook.views, tiktokViews, xImpressions, DATA.instagram.views, DATA.youtube.total_views],
+  colors:[COLORS.facebook, COLORS.tiktok, COLORS.x, COLORS.instagram, COLORS.youtube]
 };
 new Chart(document.getElementById('chartViewsByPlatform'),{
   type:'bar',
   data:{labels:viewsByPlatform.labels, datasets:[{data:viewsByPlatform.values, backgroundColor:viewsByPlatform.colors, borderRadius:8, maxBarThickness:46}]},
   options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>fmt(c.raw)+' visualizaciones'}}}, scales:{x:{grid:{display:false}}, y:{grid:{color:'rgba(255,255,255,0.05)'}, ticks:{callback:v=>fmtCompact(v)}}}}
 });
-document.getElementById('insightViews').innerHTML = `<b>Facebook</b> vuelve a liderar en volumen (${fmtCompact(viewsByPlatform.values[0])}), seguido de cerca por TikTok (${fmtCompact(viewsByPlatform.values[1])}) — ambos aún por encima de sus niveles previos al pico viral.`;
+document.getElementById('insightViews').innerHTML = `<b>Facebook</b> lidera con claridad (${fmtCompact(viewsByPlatform.values[0])}), casi el doble que TikTok (${fmtCompact(viewsByPlatform.values[1])}) — un cambio de liderazgo frente a semanas anteriores donde TikTok dominaba.`;
 
 /* ---------- INTERACTIONS BY PLATFORM ---------- */
 const interByPlatform = {
@@ -457,7 +437,7 @@ new Chart(document.getElementById('chartInteractionsByPlatform'),{
   data:{labels:interByPlatform.labels, datasets:[{data:interByPlatform.values, backgroundColor:interByPlatform.colors, borderRadius:8, maxBarThickness:46}]},
   options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>fmt(c.raw)+' interacciones'}}}, scales:{x:{grid:{display:false}}, y:{grid:{color:'rgba(255,255,255,0.05)'}, ticks:{callback:v=>fmtCompact(v)}}}}
 });
-document.getElementById('insightInteractions').innerHTML = `<b>TikTok</b> sigue concentrando la mayoría de las interacciones (${fmt(interByPlatform.values[0])}), pero <b>X</b> ya es el segundo canal (${fmt(interByPlatform.values[1])}), superando a Facebook e Instagram esta semana.`;
+document.getElementById('insightInteractions').innerHTML = `<b>TikTok</b> (${fmt(interByPlatform.values[0])}) y <b>X</b> (${fmt(interByPlatform.values[1])}) concentran la mayoría de las interacciones — juntos superan por mucho a Facebook e Instagram combinados.`;
 
 /* ---------- FOLLOWERS ---------- */
 new Chart(document.getElementById('chartFollowers'),{
@@ -465,17 +445,17 @@ new Chart(document.getElementById('chartFollowers'),{
   data:{labels:['Facebook','Instagram','YouTube','X (neto)'], datasets:[{data:[DATA.facebook.followers, DATA.instagram.followers, DATA.youtube.total_subs, xNetFollowers], backgroundColor:[COLORS.facebook, COLORS.instagram, COLORS.youtube, COLORS.x], borderRadius:8, maxBarThickness:46}]},
   options:{responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>'+'+fmt(c.raw)+' seguidores netos'}}}, scales:{x:{grid:{color:'rgba(255,255,255,0.05)'}}, y:{grid:{display:false}}}}
 });
-document.getElementById('insightFollowers').innerHTML = `Instagram pierde seguidores netos (${fmt(DATA.instagram.followers)}, ${DATA.instagram.followers_pct.toFixed(1)}%) mientras Facebook sigue sumando (+${fmt(DATA.facebook.followers)}, +${DATA.facebook.followers_pct.toFixed(1)}%) — trayectorias opuestas dentro del mismo ecosistema Meta.`;
+document.getElementById('insightFollowers').innerHTML = `Facebook ganó ${fmt(DATA.facebook.followers)} seguidores netos (+${DATA.facebook.followers_pct.toFixed(1)}%) — su mejor semana en todo el radar — mientras Instagram siguió perdiendo (${fmt(DATA.instagram.followers)}, ${DATA.instagram.followers_pct.toFixed(1)}%).`;
 
 /* ---------- TRAFFIC SOURCES DONUT ---------- */
 const trafficLabels = Object.keys(DATA.ga4.channels_new_users);
 const trafficValues = Object.values(DATA.ga4.channels_new_users);
 new Chart(document.getElementById('chartTraffic'),{
   type:'doughnut',
-  data:{labels:trafficLabels, datasets:[{data:trafficValues, backgroundColor:[COLORS.amber, COLORS.teal, COLORS.teal2, '#8b8bff', '#6f6f76'], borderColor:'#000', borderWidth:2}]},
+  data:{labels:trafficLabels, datasets:[{data:trafficValues, backgroundColor:[COLORS.teal, COLORS.amber, COLORS.teal2, '#8b8bff', '#6f6f76'], borderColor:'#000', borderWidth:2}]},
   options:{responsive:true, maintainAspectRatio:false, cutout:'62%', plugins:{legend:{position:'right', labels:{boxWidth:10, usePointStyle:true, pointStyle:'circle', font:{size:11}}}}}
 });
-document.getElementById('insightTraffic').innerHTML = `<b>Directo</b> (${fmt(DATA.ga4.channels_new_users['Directo'])}) sigue siendo la vía principal, seguido de búsqueda orgánica (${fmt(DATA.ga4.channels_new_users['Búsqueda orgánica'])}).`;
+document.getElementById('insightTraffic').innerHTML = `Cambio de liderazgo: <b>social orgánico</b> (${fmt(DATA.ga4.channels_new_users['Social orgánico'])}) es ahora la vía principal de entrada, superando por primera vez al tráfico directo (${fmt(DATA.ga4.channels_new_users['Directo'])}) — prueba directa de que el pico viral sí está llegando al sitio esta semana.`;
 
 /* ---------- COUNTRIES (cur vs prev) ---------- */
 const countryLabels = Object.keys(DATA.ga4.top_countries);
@@ -489,7 +469,7 @@ new Chart(document.getElementById('chartCountries'),{
   ]},
   options:{responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{position:'top', labels:{boxWidth:10, usePointStyle:true, pointStyle:'circle'}}, tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmt(c.raw)+' usuarios activos'}}}, scales:{x:{grid:{color:'rgba(255,255,255,0.05)'}}, y:{grid:{display:false}}}}
 });
-document.getElementById('insightCountries').innerHTML = `<b>El Salvador</b> retoma el primer lugar (${fmt(DATA.ga4.top_countries['El Salvador'])}, antes ${fmt(DATA.prev.ga4.top_countries['El Salvador'])}), y Singapur cae del primero al tercer puesto — la señal de tráfico atípico se atenúa esta semana.`;
+document.getElementById('insightCountries').innerHTML = `<b>El Salvador</b> se dispara a ${fmt(DATA.ga4.top_countries['El Salvador'])} usuarios (antes ${fmt(DATA.prev.ga4.top_countries['El Salvador'])}) — más del triple. Singapur cae a ${fmt(DATA.ga4.top_countries['Singapur'])}, ya lejos del primer lugar que ocupaba hace algunas semanas.`;
 
 /* ---------- TOP YOUTUBE VIDEOS ---------- */
 const topYT = DATA.youtube.top_videos;
@@ -498,7 +478,7 @@ new Chart(document.getElementById('chartTopYT'),{
   data:{labels:topYT.map(v=>v[0].length>42?v[0].slice(0,42)+'…':v[0]), datasets:[{data:topYT.map(v=>v[1]), backgroundColor:COLORS.youtube, borderRadius:6, maxBarThickness:20}]},
   options:{responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{display:false}, tooltip:{callbacks:{title:c=>topYT[c[0].dataIndex][0], label:c=>fmt(c.raw)+' vistas'}}}, scales:{x:{grid:{color:'rgba(255,255,255,0.05)'}}, y:{grid:{display:false}, ticks:{font:{size:10.5}}}}}
 });
-document.getElementById('insightYT').innerHTML = `El líder es una pieza de archivo (Héctor Dada Hirezi, de junio), pero el <b>segundo lugar es contenido nuevo</b>: "¿Por qué El Salvador oculta los datos sobre las personas desaparecidas?", publicado apenas el 3 de septiembre.`;
+document.getElementById('insightYT').innerHTML = `El liderazgo sigue en manos de contenido de archivo (Héctor Dada Hirezi, de junio) — a diferencia de TikTok, X y el sitio, YouTube no reflejó el boom de la investigación de latifundistas en sus vistas esta semana.`;
 
 /* ---------- TOP PAGES (GA4) ---------- */
 const topPages = DATA.ga4.top_pages.slice(0,10);
@@ -507,17 +487,23 @@ new Chart(document.getElementById('chartTopPages'),{
   data:{labels:topPages.map(p=>{let t=p[0].replace(' - FOCOS',''); return t.length>42?t.slice(0,42)+'…':t;}), datasets:[{data:topPages.map(p=>p[1]), backgroundColor:COLORS.amber, borderRadius:6, maxBarThickness:20}]},
   options:{responsive:true, maintainAspectRatio:false, indexAxis:'y', plugins:{legend:{display:false}, tooltip:{callbacks:{title:c=>topPages[c[0].dataIndex][0], label:c=>fmt(c.raw)+' vistas de página'}}}, scales:{x:{grid:{color:'rgba(255,255,255,0.05)'}}, y:{grid:{display:false}, ticks:{font:{size:10.5}}}}}
 });
-document.getElementById('insightPages').innerHTML = `<b>«¿Por qué decidimos cubrir una elección sin garantías democráticas?»</b> se mantiene en el top con ${fmt(topPages[1][1])} vistas por segunda semana consecutiva — una pieza editorial con permanencia real, no solo un pico de un día.`;
+document.getElementById('insightPages').innerHTML = `<b>«Amigos y socios de los Bukele»</b> no solo lidera, sino que triplica al resto del top combinado (${fmt(topPages[0][1])} vistas) — un dominio absoluto que no se había visto antes en este radar.`;
 
 /* ---------- ACTIVE INVESTIGATIONS ---------- */
-document.getElementById('invList').innerHTML = DATA.investigations.map(i=>`
-  <div class="inv-item">
+document.getElementById('invList').innerHTML = DATA.investigations.map((i,idx)=>{
+  let deltaLabel;
+  if(i.prev===null||i.prev===undefined){ deltaLabel = `<div class="inv-delta new">Sin dato de la semana anterior</div>`; }
+  else if(i.prev===0){ deltaLabel = `<div class="inv-delta new">Nueva esta semana</div>`; }
+  else { const d = pct(i.views, i.prev); deltaLabel = `<div class="inv-delta up">${d>0?'↑':'↓'} ${Math.abs(d).toFixed(0)}% vs. anterior (${fmt(i.prev)})</div>`; }
+  return `
+  <div class="inv-item ${idx===0?'hero':''}">
     <div>
-      <div class="inv-title">${i.title}${i.is_new?'<span class="badge-new">NUEVA</span>':''}</div>
+      <div class="inv-title">${i.title}</div>
       <div class="inv-meta">Vistas de página — últimos 7 días (GA4)</div>
     </div>
-    <div class="inv-right"><div class="inv-num">${fmt(i.views)}</div></div>
-  </div>`).join('');
+    <div class="inv-right"><div class="inv-num">${fmt(i.views)}</div>${deltaLabel}</div>
+  </div>`;
+}).join('');
 
 /* ---------- DAILY TABLE ---------- */
 let rows = '';
